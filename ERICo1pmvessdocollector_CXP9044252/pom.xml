@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ericsson.oss.mediation.pm</groupId>
+        <artifactId>o1-pm-ves-sdo-collector</artifactId>
+        <version>1.0.4-SNAPSHOT</version>
+    </parent>
+    <artifactId>ERICo1pmvessdocollector_CXP9044252</artifactId>
+    <packaging>rpm</packaging>
+    <name>[${project.parent.artifactId}] RPM module</name>
+    <description>RPM module</description>
+
+    <properties>
+        <publish_artifact>true</publish_artifact>
+        <media.category>service</media.category>
+        <com.ericsson.oss.rpm.architecture>noarch</com.ericsson.oss.rpm.architecture>
+        <comp-name>ericsson</comp-name>
+        <rpm.name>${project.artifactId}</rpm.name>
+        <rpm.version>${project.version}</rpm.version>
+        <sonar.skip>true</sonar.skip>
+    </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>rpm-maven-plugin</artifactId>
+                <configuration>
+                    <mappings>
+                        <mapping>
+                            <directory>${vm.install-path}</directory>
+                            <filemode>550</filemode>
+                            <username>${jboss-username}</username>
+                            <groupname>${jboss-groupname}</groupname>
+                            <directoryIncluded>false</directoryIncluded>
+                            <recurseDirectories>false</recurseDirectories>
+                        </mapping>
+                    </mappings>
+                    <group />
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.owasp</groupId>
+                <artifactId>dependency-check-maven</artifactId>
+                <version>6.0.5</version>
+                <configuration>
+                    <ossindexAnalyzerEnabled>false</ossindexAnalyzerEnabled>
+                    <retireJsAnalyzerEnabled>false</retireJsAnalyzerEnabled>
+                    <skipProvidedScope>true</skipProvidedScope>
+                    <skipRuntimeScope>true</skipRuntimeScope>
+                    <!-- Build fails for critical vulnerabilities -->
+                    <failBuildOnCVSS>9</failBuildOnCVSS>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>check</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.ericsson.oss.pmic</groupId>
+        <artifactId>pmic-integration</artifactId>
+        <version>3.1.120</version>
+    </parent>
+
+    <groupId>com.ericsson.oss.mediation.pm</groupId>
+    <artifactId>o1-pm-ves-sdo-collector</artifactId>
+    <version>1.0.4-SNAPSHOT</version>
+    <packaging>pom</packaging>
+    <name>[${project.artifactId}] JEE8 Project</name>
+
+    <properties>
+        <version.modeling-bom>21.8.10</version.modeling-bom>
+        <ericsson.scm.url>scm:git:[fetch=]ssh://gerrit-gamma-read.seli.gic.ericsson.se:29418/OSS/ENM-Parent/SQ-Gate/com.ericsson.oss.mediation.pm/o1-pm-ves-sdo-collector[push=]ssh://gerrit-gamma.gic.ericsson.se:29418/OSS/ENM-Parent/SQ-Gate/com.ericsson.oss.mediation.pm/o1-pm-ves-sdo-collector</ericsson.scm.url>
+    </properties>
+
+    <modules>
+        <module>ERICo1pmvessdocollector_CXP9044252</module>
+    </modules>
+
+    <scm>
+        <developerConnection>${ericsson.scm.url}</developerConnection>
+        <connection>${ericsson.scm.url}</connection>
+        <tag>HEAD</tag>
+    </scm>
+</project>
